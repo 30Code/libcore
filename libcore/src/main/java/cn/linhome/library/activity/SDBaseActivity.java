@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.sunday.eventbus.SDBaseEvent;
 import com.sunday.eventbus.SDEventManager;
 import com.sunday.eventbus.SDEventObserver;
 
@@ -514,6 +515,12 @@ public abstract class SDBaseActivity extends AppCompatActivity implements
             params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         }
         super.addContentView(view, params);
+    }
+
+    @Override
+    public void onEventMainThread(SDBaseEvent event)
+    {
+
     }
 
     @Override
