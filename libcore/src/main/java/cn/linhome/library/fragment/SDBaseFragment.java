@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 
+import com.sunday.eventbus.SDBaseEvent;
+import com.sunday.eventbus.SDEventObserver;
+
 import cn.linhome.library.activity.SDBaseActivity;
 import cn.linhome.library.common.SDFragmentManager;
 
@@ -20,7 +23,7 @@ import java.util.List;
 
 @Deprecated
 public abstract class SDBaseFragment extends Fragment implements
-        OnClickListener,
+        OnClickListener, SDEventObserver,
         SDBaseActivity.ActivityTouchEventCallback,
         SDBaseActivity.ActivityKeyEventCallback
 {
