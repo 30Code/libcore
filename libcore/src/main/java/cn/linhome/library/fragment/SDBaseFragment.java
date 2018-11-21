@@ -193,6 +193,12 @@ public abstract class SDBaseFragment extends Fragment implements
     }
 
     @Override
+    public void onEventMainThread(SDBaseEvent sdBaseEvent)
+    {
+
+    }
+
+    @Override
     public void onDestroy()
     {
         super.onDestroy();
