@@ -32,7 +32,7 @@ dependencies {
     api 'com.android.support:recyclerview-v7:27.1.1'
     api 'com.alibaba:fastjson:1.1.70.android'
 
-    api 'com.github.yangwb1259883028:res:1.0.3'
+    implementation 'com.github.yangwb1259883028:res:1.0.3'
     api 'com.github.yangwb1259883028:receiver:1.0.1'
     api 'com.github.yangwb1259883028:holder_objects:1.0.0'
     api 'com.github.yangwb1259883028:utils:1.0.3'
