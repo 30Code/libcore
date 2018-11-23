@@ -8,7 +8,7 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20181122
+        versionCode 20181123
         versionName "1.1.2"
     }
 
@@ -26,17 +26,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.alibaba:fastjson:1.1.70.android'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:support-v4:27.1.1'
+    api 'com.android.support:recyclerview-v7:27.1.1'
+    api 'com.alibaba:fastjson:1.1.70.android'
 
-    implementation 'com.github.yangwb1259883028:res:1.0.3'
-    implementation 'com.github.yangwb1259883028:receiver:1.0.1'
-    implementation 'com.github.yangwb1259883028:holder_objects:1.0.0'
-    implementation 'com.github.yangwb1259883028:utils:1.0.3'
-    implementation 'com.github.yangwb1259883028:utils-extend:1.0.2'
+    api 'com.github.yangwb1259883028:res:1.0.3'
+    api 'com.github.yangwb1259883028:receiver:1.0.1'
+    api 'com.github.yangwb1259883028:holder_objects:1.0.0'
+    api 'com.github.yangwb1259883028:utils:1.0.3'
+    api 'com.github.yangwb1259883028:utils-extend:1.0.2'
 }
 
 
