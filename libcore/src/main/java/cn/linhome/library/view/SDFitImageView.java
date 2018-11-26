@@ -37,6 +37,9 @@ public class SDFitImageView extends AppCompatImageView
     {
         super.onDraw(canvas);
         Drawable drawable = getDrawable();
-        FViewUtil.scaleHeight(this, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        if (drawable != null)
+        {
+            FViewUtil.scaleHeight(this, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        }
     }
 }
