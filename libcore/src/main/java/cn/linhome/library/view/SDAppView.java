@@ -12,9 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.sunday.eventbus.SDBaseEvent;
+import com.sunday.eventbus.SDEventObserver;
+
 import cn.linhome.lib.utils.FViewUtil;
 import cn.linhome.lib.utils.extend.FViewVisibilityHandler;
 import cn.linhome.library.activity.SDBaseActivity;
+import de.greenrobot.event.EventBus;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -25,6 +29,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class SDAppView extends FrameLayout implements
         View.OnClickListener,
+        SDEventObserver,
         SDBaseActivity.ActivityLifecycleCallback,
         SDBaseActivity.ActivityResultCallback,
         SDBaseActivity.ActivityTouchEventCallback,
@@ -47,6 +52,15 @@ public class SDAppView extends FrameLayout implements
         super(context);
         baseInit();
     }
+
+    /**
+     * 是否需要注册EventBus事件
+     */
+    private boolean mNeedRegisterEventBus = true;
+    /**
+     * 是否已经注册EventBus事件
+     */
+    private boolean mHasRegisterEventBus = false;
 
     /**
      * 设置是否消费掉触摸事件，true-事件不会透过view继续往下传递
@@ -85,6 +99,16 @@ public class SDAppView extends FrameLayout implements
      */
     protected void onBaseInit()
     {
+    }
+
+    /**
+     * 设置是否需要注册EventBus事件
+     *
+     * @param needRegisterEventBus
+     */
+    public void setNeedRegisterEventBus(boolean needRegisterEventBus)
+    {
+        mNeedRegisterEventBus = needRegisterEventBus;
     }
 
     /**
@@ -361,6 +385,7 @@ public class SDAppView extends FrameLayout implements
     protected void onAttachedToWindow()
     {
         super.onAttachedToWindow();
+        registerEventBus();
         registerActivityEvent();
     }
 
@@ -374,6 +399,7 @@ public class SDAppView extends FrameLayout implements
             mListLayoutRunnable.clear();
             mListLayoutRunnable = null;
         }
+        unregisterEventBus();
         unregisterActivityEvent();
     }
 
@@ -404,6 +430,33 @@ public class SDAppView extends FrameLayout implements
             activity.getActivityResultCallbackHolder().remove(this);
             activity.getTouchEventCallbackHolder().remove(this);
             activity.getKeyEventCallbackHolder().remove(this);
+        }
+    }
+
+    /**
+     * 注册EventBus
+     */
+    public final void registerEventBus()
+    {
+        if (mNeedRegisterEventBus)
+        {
+            if (!mHasRegisterEventBus)
+            {
+                EventBus.getDefault().register(this);
+                mHasRegisterEventBus = true;
+            }
+        }
+    }
+
+    /**
+     * 取消注册EventBus
+     */
+    public final void unregisterEventBus()
+    {
+        if (mHasRegisterEventBus)
+        {
+            EventBus.getDefault().unregister(this);
+            mHasRegisterEventBus = false;
         }
     }
 
@@ -473,6 +526,12 @@ public class SDAppView extends FrameLayout implements
 
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data)
+    {
+
+    }
+
+    @Override
+    public void onEventMainThread(SDBaseEvent sdBaseEvent)
     {
 
     }

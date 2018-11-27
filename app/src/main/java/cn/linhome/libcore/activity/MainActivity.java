@@ -1,16 +1,39 @@
 package cn.linhome.libcore.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+import com.sunday.eventbus.SDEventManager;
 
 import cn.linhome.libcore.R;
+import cn.linhome.library.activity.SDBaseActivity;
+import cn.linhome.library.utils.LogUtil;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends SDBaseActivity
 {
+
+    private Button btn_test;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void init(Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
+        btn_test = findViewById(R.id.btn_test);
+
+        btn_test.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                ETestModel event = new ETestModel();
+                SDEventManager.post(event);
+                LogUtil.i("------------ test >> 发送");
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
