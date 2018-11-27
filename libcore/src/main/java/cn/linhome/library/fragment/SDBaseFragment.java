@@ -14,6 +14,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 
 import com.sunday.eventbus.SDBaseEvent;
+import com.sunday.eventbus.SDEventManager;
 import com.sunday.eventbus.SDEventObserver;
 
 import cn.linhome.library.activity.SDBaseActivity;
@@ -82,6 +83,7 @@ public abstract class SDBaseFragment extends Fragment implements
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        SDEventManager.register(this);
         SDBaseActivity activity = getBaseActivity();
         if (activity != null)
         {
@@ -205,6 +207,7 @@ public abstract class SDBaseFragment extends Fragment implements
     public void onDestroy()
     {
         super.onDestroy();
+        SDEventManager.unregister(this);
         SDBaseActivity activity = getBaseActivity();
         if (activity != null)
         {
