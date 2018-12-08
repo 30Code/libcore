@@ -1,15 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.yangwb1259883028'
+group = 'com.github.30Code'
 
 android {
     compileSdkVersion 27
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20181124
-        versionName "1.1.2"
+        versionCode 20181208
+        versionName "1.1.5"
     }
 
     buildTypes {
@@ -31,11 +31,11 @@ dependencies {
     api 'com.android.support:support-v4:27.1.1'
     api 'com.android.support:recyclerview-v7:27.1.1'
 
-    api 'com.github.yangwb1259883028:res:1.0.3'
-    api 'com.github.yangwb1259883028:receiver:1.0.1'
-    api 'com.github.yangwb1259883028:holder_objects:1.0.1.v1'
-    api 'com.github.yangwb1259883028:utils:1.0.3'
-    api 'com.github.yangwb1259883028:utils-extend:1.0.3.v1'
+    api 'com.github.30Code:res:1.0.4'
+    api 'com.github.30Code:receiver:1.0.2'
+    api 'com.github.30Code:holderobjects:1.0.2'
+    api 'com.github.30Code:utils:1.0.4.v1'
+    api 'com.github.30Code:utilsextend:1.0.4'
 }
 
 
