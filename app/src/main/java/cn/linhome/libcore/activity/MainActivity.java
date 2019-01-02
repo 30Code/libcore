@@ -27,11 +27,7 @@ public class MainActivity extends SDBaseActivity
             @Override
             public void onClick(View view)
             {
-                ETestModel event = new ETestModel();
-                SDEventManager.post(event);
-                LogUtil.i("------------ test >> 发送");
-
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, Test2Activity.class);
                 startActivity(intent);
             }
         });

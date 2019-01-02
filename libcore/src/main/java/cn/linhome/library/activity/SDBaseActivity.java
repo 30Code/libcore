@@ -24,7 +24,9 @@ import com.sunday.eventbus.SDEventObserver;
 import cn.linhome.lib.holder.objects.FObjectsHolder;
 import cn.linhome.lib.holder.objects.FStrongObjectsHolder;
 import cn.linhome.lib.holder.objects.ForeachCallback;
+import cn.linhome.library.R;
 import cn.linhome.library.common.SDFragmentManager;
+import qiu.niorgai.StatusBarCompat;
 
 
 public abstract class SDBaseActivity extends AppCompatActivity implements
@@ -95,7 +97,17 @@ public abstract class SDBaseActivity extends AppCompatActivity implements
         }
         init(savedInstanceState);
 
+        setStatusBar();
+
         notifyOnCreate(savedInstanceState);
+    }
+
+    /**
+     * 沉浸式设置
+     */
+    protected void setStatusBar()
+    {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.res_main_color));
     }
 
     /**
