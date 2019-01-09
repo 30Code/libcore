@@ -5,7 +5,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import cn.linhome.libcore.R;
-import cn.linhome.library.activity.SDBaseActivity;
 import qiu.niorgai.StatusBarCompat;
 
 /**
@@ -13,7 +12,7 @@ import qiu.niorgai.StatusBarCompat;
  * Created by 30Code
  * on 2019/1/2
  */
-public class Test2Activity extends SDBaseActivity
+public class Test2Activity extends BaseActivity
 {
     private ImageView iv;
     private RelativeLayout rl_test;

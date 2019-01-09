@@ -3,7 +3,6 @@ package cn.linhome.libcore.activity;
 import android.os.Bundle;
 
 import cn.linhome.libcore.R;
-import cn.linhome.library.activity.SDBaseActivity;
 import qiu.niorgai.StatusBarCompat;
 
 /**
@@ -11,7 +10,7 @@ import qiu.niorgai.StatusBarCompat;
  * Created by 30Code
  * on 2019/1/2
  */
-public class TestActivity extends SDBaseActivity
+public class TestActivity extends BaseActivity
 {
 
     @Override

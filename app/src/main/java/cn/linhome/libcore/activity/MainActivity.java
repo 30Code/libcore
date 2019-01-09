@@ -27,7 +27,7 @@ public class MainActivity extends SDBaseActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, Test2Activity.class);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             }
         });

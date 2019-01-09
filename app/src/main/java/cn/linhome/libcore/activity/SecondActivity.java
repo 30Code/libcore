@@ -1,31 +1,33 @@
 package cn.linhome.libcore.activity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.FrameLayout;
 
-import com.sunday.eventbus.SDBaseEvent;
-import com.sunday.eventbus.SDEventManager;
-
+import cn.linhome.lib.title.FTitle;
+import cn.linhome.lib.utils.context.FResUtil;
 import cn.linhome.libcore.R;
-import cn.linhome.library.activity.SDBaseActivity;
-import cn.linhome.library.utils.LogUtil;
+import qiu.niorgai.StatusBarCompat;
 
-public class SecondActivity extends SDBaseActivity
+public class SecondActivity extends BaseActivity
 {
-
-    private Button btn_test;
-
+    private FTitle mTitleView;
     @Override
     protected void init(Bundle savedInstanceState)
     {
-        setContentView(R.layout.act_main);
-        btn_test = findViewById(R.id.btn_test);
-        btn_test.setVisibility(View.GONE);
+        setContentView(R.layout.act_second);
+        mTitleView = findViewById(R.id.title);
+        mTitleView.getItemLeft().setImageLeft(R.mipmap.ic_arrow_back);
+        mTitleView.addItemMiddle().setTextTop("测试");
+
+        FrameLayout.LayoutParams layoutParams= (FrameLayout.LayoutParams) mTitleView.getLayoutParams();
+        layoutParams.topMargin = FResUtil.getStatusBarHeight();
+        mTitleView.setLayoutParams(layoutParams);
     }
 
-    public void onEventMainThread(ETestModel event)
+    @Override
+    protected void setStatusBar()
     {
-        LogUtil.i("------------ test >> 收到");
+        super.setStatusBar();
+        StatusBarCompat.translucentStatusBar(this);
     }
 }
