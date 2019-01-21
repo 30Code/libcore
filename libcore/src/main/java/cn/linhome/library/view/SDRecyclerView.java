@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 
 import cn.linhome.library.utils.DividerItemDecorationExtend;
@@ -104,6 +105,33 @@ public class SDRecyclerView extends RecyclerView
         if (manager instanceof GridLayoutManager)
         {
             return (GridLayoutManager) manager;
+        }
+        return null;
+    }
+
+    //----------StaggeredGrid----------
+
+    /**
+     * 设置瀑布流布局管理器(仅讨论竖直方向)
+     * @param spanCount   单行或者单列的网格数量
+     */
+    public void setStaggeredGridLayoutManager(int spanCount)
+    {
+        final StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(spanCount, RecyclerView.VERTICAL);
+        setLayoutManager(manager);
+    }
+
+    /**
+     * 返回瀑布流布局管理器
+     *
+     * @return
+     */
+    public StaggeredGridLayoutManager getStaggeredGridLayoutManager()
+    {
+        final LayoutManager manager = getLayoutManager();
+        if (manager instanceof StaggeredGridLayoutManager)
+        {
+            return (StaggeredGridLayoutManager) manager;
         }
         return null;
     }
