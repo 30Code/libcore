@@ -154,6 +154,16 @@ public class SDRecyclerView extends RecyclerView
     }
 
     /**
+     * 是否处于RecyclerView.SCROLL_STATE_IDLE空闲状态
+     *
+     * @return
+     */
+    public boolean isIdle()
+    {
+        return getScrollState() == RecyclerView.SCROLL_STATE_IDLE;
+    }
+
+    /**
      * 滚动到布局开始的位置
      */
     public void scrollToStart()
@@ -224,4 +234,111 @@ public class SDRecyclerView extends RecyclerView
     }
 
     //----------divider end----------
+
+    /**
+     * 第一个item是否完全可见
+     *
+     * @return
+     */
+    public boolean isFirstItemCompletelyVisible()
+    {
+        boolean result = false;
+        int count = getItemCount();
+        if (count > 0)
+        {
+            LayoutManager layoutManager = getLayoutManager();
+            if (layoutManager instanceof GridLayoutManager)
+            {
+                if (getGridLayoutManager().findFirstCompletelyVisibleItemPosition() == 0)
+                {
+                    result = true;
+                }
+            } else if (layoutManager instanceof LinearLayoutManager)
+            {
+                if (getLinearLayoutManager().findFirstCompletelyVisibleItemPosition() == 0)
+                {
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 最后一个item是否完全可见
+     *
+     * @return
+     */
+    public boolean isLastItemCompletelyVisible()
+    {
+        boolean result = false;
+
+        int count = getItemCount();
+        if (count > 0)
+        {
+            LayoutManager layoutManager = getLayoutManager();
+            if (layoutManager instanceof GridLayoutManager)
+            {
+                if (getGridLayoutManager().findLastCompletelyVisibleItemPosition() == count - 1)
+                {
+                    result = true;
+                }
+            } else if (layoutManager instanceof LinearLayoutManager)
+            {
+                if (getLinearLayoutManager().findLastCompletelyVisibleItemPosition() == count - 1)
+                {
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public void onScrollStateChanged(int state)
+    {
+        super.onScrollStateChanged(state);
+        if (isIdle())
+        {
+            if (isLastItemCompletelyVisible() && mIsSlidingToLast)
+            {
+                if (mOnScrollCallBack != null)
+                {
+                    mOnScrollCallBack.onLoadMore();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onScrolled(int dx, int dy)
+    {
+        super.onScrolled(dx, dy);
+        //dx用来判断横向滑动方向，dy用来判断纵向滑动方向
+        if (dx > 0)
+        {
+            //大于0表示正在向(左)下滚动
+            mIsSlidingToLast = true;
+        } else
+        {
+            //小于等于0表示停止或向(右)上滚动
+            mIsSlidingToLast = false;
+        }
+    }
+
+    // 用来标记是否正在向最后一个滑动
+    private boolean mIsSlidingToLast= false;
+
+    private OnScrollCallBack mOnScrollCallBack;
+
+    public void addOnScrollCallBack(OnScrollCallBack onScrollCallBack)
+    {
+        this.mOnScrollCallBack = onScrollCallBack;
+    }
+
+    public interface OnScrollCallBack
+    {
+        // 加载更多
+        void onLoadMore();
+    }
 }
