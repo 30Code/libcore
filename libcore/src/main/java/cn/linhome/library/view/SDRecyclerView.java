@@ -315,13 +315,13 @@ public class SDRecyclerView extends RecyclerView
     {
         super.onScrolled(dx, dy);
         //dx用来判断横向滑动方向，dy用来判断纵向滑动方向
-        if (dx > 0)
+        if (dx > 0 || dy > 0)
         {
-            //大于0表示正在向(左)下滚动
+            //大于0表示正在向(右)下滚动
             mIsSlidingToLast = true;
         } else
         {
-            //小于等于0表示停止或向(右)上滚动
+            //小于等于0表示停止或向(左)上滚动
             mIsSlidingToLast = false;
         }
     }
