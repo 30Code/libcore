@@ -8,7 +8,7 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20190125
+        versionCode 20190408
         versionName "1.1.5"
     }
 
@@ -35,10 +35,10 @@ dependencies {
         exclude group: 'com.android.support'
     })
 
-    api 'com.github.30Code:res:1.0.4'
+    api 'com.github.30Code:res:1.0.5.v2'
     api 'com.github.30Code:receiver:1.0.2'
     api 'com.github.30Code:holderobjects:1.0.2'
-    api 'com.github.30Code:utils:1.0.4.v1'
+    api 'com.github.30Code:utils:1.0.4.v2'
     api 'com.github.30Code:utilsextend:1.0.4'
 }
 
