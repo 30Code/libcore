@@ -1,5 +1,6 @@
 package cn.linhome.library.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Dialog;
@@ -8,7 +9,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.sunday.eventbus.SDBaseEvent;
 import com.sunday.eventbus.SDEventManager;
@@ -354,6 +356,7 @@ public abstract class SDBaseActivity extends AppCompatActivity implements
     /**
      * 设置activity为竖屏
      */
+    @SuppressLint("SourceLockedOrientationActivity")
     public void setOrientationPortrait()
     {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -362,6 +365,7 @@ public abstract class SDBaseActivity extends AppCompatActivity implements
     /**
      * 设置activity为横屏
      */
+    @SuppressLint("SourceLockedOrientationActivity")
     public void setOrientationLandscape()
     {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);

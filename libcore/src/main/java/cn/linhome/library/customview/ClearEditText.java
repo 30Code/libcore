@@ -12,7 +12,8 @@ import android.view.View.OnFocusChangeListener;
 import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.support.v7.widget.AppCompatEditText;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 import cn.linhome.library.R;
 

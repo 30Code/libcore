@@ -5,7 +5,8 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.support.v7.widget.AppCompatButton;
+
+import androidx.appcompat.widget.AppCompatButton;
 
 import cn.linhome.lib.utils.FViewUtil;
 import cn.linhome.lib.utils.context.FResUtil;

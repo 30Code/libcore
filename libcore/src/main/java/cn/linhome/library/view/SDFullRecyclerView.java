@@ -1,8 +1,9 @@
 package cn.linhome.library.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+
+import androidx.annotation.Nullable;
 
 /**
  * 一次性全部展示的RecyclerView，需要在android.support.v4.widget.NestedScrollView里面使用

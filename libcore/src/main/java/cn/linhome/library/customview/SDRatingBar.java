@@ -3,7 +3,8 @@ package cn.linhome.library.customview;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import android.support.v7.widget.AppCompatRatingBar;
+
+import androidx.appcompat.widget.AppCompatRatingBar;
 
 import java.lang.reflect.Field;
 
