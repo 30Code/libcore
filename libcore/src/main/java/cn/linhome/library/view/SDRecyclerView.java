@@ -265,6 +265,9 @@ public class SDRecyclerView extends RecyclerView
         return result;
     }
 
+    // 最后几个完全可见项的位置（瀑布式布局会出现这种情况）
+    private int[] mLastCompletelyVisiblePositions;
+
     /**
      * 最后一个item是否完全可见
      *
@@ -290,9 +293,33 @@ public class SDRecyclerView extends RecyclerView
                 {
                     result = true;
                 }
+            } else if (layoutManager instanceof StaggeredGridLayoutManager)
+            {
+                if (mLastCompletelyVisiblePositions == null) {
+                    mLastCompletelyVisiblePositions = new int [((StaggeredGridLayoutManager) layoutManager).getSpanCount()];
+                }
+
+                getStaggeredGridLayoutManager().findLastCompletelyVisibleItemPositions(mLastCompletelyVisiblePositions);
+
+                int lastCompletelyVisibleItemPosition = getMaxPosition(mLastCompletelyVisiblePositions);
+
+                if (lastCompletelyVisibleItemPosition == count - 1)
+                {
+                    result = true;
+                }
             }
         }
         return result;
+    }
+
+    private int getMaxPosition(int[] positions) {
+        int max = positions[0];
+        for (int i = 1; i < positions.length; i++) {
+            if (positions[i] > max) {
+                max = positions[i];
+            }
+        }
+        return max;
     }
 
     @Override
