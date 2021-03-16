@@ -37,7 +37,8 @@ dependencies {
     api 'com.github.30Code:res:1.0.5.v2'
     api 'com.github.30Code:receiver:1.0.2'
     api 'com.github.30Code:holderobjects:1.0.2'
-    api 'com.github.30Code:utils:1.0.4.v2'
+
+    api 'com.github.30Code:utils:1.0.4.v3'
     api 'com.github.30Code:utilsextend:1.0.4'
 }
 
