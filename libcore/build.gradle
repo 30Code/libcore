@@ -9,7 +9,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 20210616
-        versionName "1.1.8.v1"
+        versionName "1.1.7.v2"
     }
 
     buildTypes {
