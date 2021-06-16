@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 202001106
-        versionName "1.1.7"
+        versionCode 20210616
+        versionName "1.1.8.v1"
     }
 
     buildTypes {
@@ -27,8 +27,8 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'androidx.appcompat:appcompat:1.2.0'
-    api 'com.google.android.material:material:1.2.1'
+    api 'androidx.appcompat:appcompat:1.3.0'
+    api 'com.google.android.material:material:1.3.0'
 
     api ('com.github.niorgai:StatusBarCompat:2.1.4', {
         exclude group: 'com.android.support'
@@ -38,8 +38,8 @@ dependencies {
     api 'com.github.30Code:receiver:1.0.2'
     api 'com.github.30Code:holderobjects:1.0.2'
 
-    api 'com.github.30Code:utils:1.0.4.v3'
-    api 'com.github.30Code:utilsextend:1.0.4'
+    api 'com.github.30Code:utils:1.0.4.v2'
+    api 'com.github.30Code:utilsextend:1.0.5.v1'
 }
 
 
